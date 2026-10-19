@@ -1,0 +1,21 @@
+{% extends 'portfolios/base.html' %}
+{% block content %}
+<main>
+  <section class="bg-dark text-white py-5">
+    <div class="container py-5 text-center">
+      <span class="badge bg-info text-dark p-2 mb-4">صفحتك المهنية في دقائق</span>
+      <h1 class="display-4 fw-bold">أنشئ بورتفوليو <span class="text-info">يعبر عنك</span></h1>
+      <p class="lead text-white-50 mx-auto mt-3 mb-4" style="max-width: 660px">أدخل بياناتك ومهاراتك ومشاريعك، واحصل على رابط مستقل لعرض أعمالك باستخدام القالب الموجود في المشروع.</p>
+      <a class="btn btn-info btn-lg px-5" href="{% if user.is_authenticated %}{% url 'portfolio_create' %}{% else %}{% url 'signup' %}{% endif %}">ابدأ الآن</a>
+      {% if user.is_authenticated %}<a class="btn btn-outline-light btn-lg ms-2" href="{% url 'dashboard' %}">لوحة التحكم</a>{% endif %}
+    </div>
+  </section>
+  <section class="container py-5">
+    <div class="row g-4 text-center">
+      <div class="col-md-4"><div class="card border-0 shadow-sm h-100"><div class="card-body p-4"><div class="display-6 text-primary">01</div><h2 class="h5 fw-bold mt-3">املأ النموذج</h2><p class="text-secondary mb-0">الاسم، النبذة، المهارات والمشاريع.</p></div></div></div>
+      <div class="col-md-4"><div class="card border-0 shadow-sm h-100"><div class="card-body p-4"><div class="display-6 text-primary">02</div><h2 class="h5 fw-bold mt-3">احفظ الصفحة</h2><p class="text-secondary mb-0">يمكنك العودة لتعديل بياناتك لاحقًا.</p></div></div></div>
+      <div class="col-md-4"><div class="card border-0 shadow-sm h-100"><div class="card-body p-4"><div class="display-6 text-primary">03</div><h2 class="h5 fw-bold mt-3">شارك الرابط</h2><p class="text-secondary mb-0">رابط عام خاص ببورتفوليو كل شخص.</p></div></div></div>
+    </div>
+  </section>
+</main>
+{% endblock %}
